@@ -1,0 +1,316 @@
+/* =========================================================================
+   1. ROOT & CONTAINER SETUP (Watermark Preservation Optimization)
+   ========================================================================= */
+.root {
+    -fx-background-color: #f8fafc !important;
+}
+
+#mainStack {
+    -fx-background-color: transparent !important;
+}
+
+#mainStack > VBox {
+    -fx-background-color: transparent !important;
+    -fx-background-radius: 20;
+}
+
+/* =========================================================================
+   2. TAB PANE & CONTENT INTERFACE PLATES
+   ========================================================================= */
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent !important;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: transparent;
+    -fx-padding: 10 0 0 0;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent !important;
+    -fx-opacity: 0 !important;
+}
+
+/* HIGH TRANSPARENCY CONTAINER: Lowered from 0.85 to 0.50 opacity
+   This makes the background watermark instantly look much larger, clearer, and wider!
+*/
+.tab-content-holder {
+    -fx-background-color: rgba(255, 255, 255, 0.50) !important;
+    -fx-border-color: rgba(226, 232, 240, 0.5) !important;
+    -fx-border-width: 1px !important;
+}
+
+/* --- INDIVIDUAL TABS --- */
+.tab {
+    -fx-background-color: #d5dbdb !important;
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 12 35 12 35;
+    -fx-background-insets: 0 10 0 10;
+    -fx-cursor: hand;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #1c2833 !important;
+    -fx-font-weight: bold !important;
+    -fx-font-size: 15px;
+}
+
+.tab:selected {
+    -fx-background-color: #2980b9 !important;
+    -fx-background-insets: 0 10 -1 10;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: white !important;
+}
+
+/* =========================================================================
+   3. CRYSTAL TRANSPARENT TABLEVIEW ENGINE (UPGRADED SELECTED ROW STYLING)
+   ========================================================================= */
+.table-view {
+    -fx-background-color: transparent !important;
+    -fx-border-color: rgba(148, 163, 184, 0.4) !important;
+    -fx-border-width: 1px !important;
+    -fx-border-radius: 8px !important;
+    -fx-background-radius: 8px !important;
+}
+
+/* Stripping all default nested container components */
+.table-view .scroll-pane,
+.table-view .scroll-pane .viewport,
+.table-view .scroll-pane .content,
+.table-view .virtual-flow,
+.table-view .virtual-flow .clipped-container .sheet {
+    -fx-background-color: transparent !important;
+}
+
+/* THE FIX: Completely strips the hard-white backdrop from the "No content in table" placeholder box */
+.table-view .placeholder,
+.table-view .placeholder .label {
+    -fx-background-color: transparent !important;
+}
+.table-view .placeholder .text {
+    -fx-fill: #475569 !important;
+    -fx-font-weight: bold !important;
+    -fx-font-size: 14px;
+}
+
+/* --- TABLE COLUMN HEADERS --- */
+.table-view .column-header-background {
+    -fx-background-color: rgba(226, 232, 240, 0.8) !important;
+    -fx-border-color: transparent transparent rgba(148, 163, 184, 0.4) transparent !important;
+    -fx-border-width: 0 0 1px 0 !important;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent !important;
+    -fx-size: 40px;
+    -fx-border-color: transparent rgba(148, 163, 184, 0.2) transparent transparent !important;
+    -fx-border-width: 0 1px 0 0 !important;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #1e293b !important;
+    -fx-font-weight: bold !important;
+    -fx-font-size: 13.5px;
+}
+
+/* --- 100% PURE GLASS ROWS --- */
+.table-view .table-row-cell {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent transparent rgba(148, 163, 184, 0.2) transparent !important;
+    -fx-border-width: 0 0 1px 0 !important;
+}
+
+.table-row-cell:filled,
+.table-row-cell:filled:odd {
+    -fx-background-color: transparent !important;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: rgba(41, 128, 185, 0.08) !important;
+}
+
+/* HIGH OUTSTANDING CONTRAST: Swapped pale yellow for an authoritative dark corporate blue */
+.table-row-cell:selected,
+.table-view .table-row-cell:filled:selected {
+    -fx-background-color: #1e3a8a !important;
+}
+
+/* TEXT COLOR OVERRIDE: Flips text to white so it contrasts beautifully against the new dark blue background */
+.table-row-cell:selected .table-cell,
+.table-view .table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: #ffffff !important;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold !important;
+    -fx-font-size: 13px !important;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 12px 14px;
+}
+
+/* =========================================================================
+   4. INPUT CONTROLS & UTILITIES
+   ========================================================================= */
+.text-field, .combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1.2;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+}
+
+#searchField, #historySearchField {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 6 15 6 15;
+    -fx-border-color: #2980b9;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-padding: 8px 18px;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+}
+
+.clear-button {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+}
+
+.standard-button {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+}
+
+/* =========================================================================
+   5. POPUP DIALOG WINDOW OVERRIDES
+   ========================================================================= */
+.dialog-pane .header-panel .text,
+.dialog-pane .header-panel .label {
+    -fx-fill: #ffffff !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-weight: bold !important;
+}
+
+.dialog-pane .header-panel {
+    -fx-padding: 16px;
+}
+
+.dialog-pane .content {
+    -fx-padding: 20px !important;
+    -fx-wrap-text: true;
+    -fx-min-width: 460px;
+    -fx-max-width: Infinity;
+}
+
+.dialog-pane .text-field {
+    -fx-opacity: 1.0 !important;
+    -fx-visibility: visible !important;
+    -fx-background-color: #ffffff !important;
+    -fx-border-color: #cbd5e1 !important;
+    -fx-border-radius: 6px !important;
+    -fx-background-radius: 6px !important;
+    -fx-text-fill: #0f172a !important;
+    -fx-font-weight: normal !important;
+    -fx-padding: 8px !important;
+    -fx-min-height: 35px !important;
+}
+
+.dialog-pane .graphic {
+    -fx-graphic: null !important;
+    -fx-padding: 0px !important;
+}
+
+/* =========================================================================
+   6. GLASS-COMPATIBLE ROW WARNING SYSTEM
+   ========================================================================= */
+.table-view .table-row-cell.row-out-of-stock {
+    -fx-background-color: rgba(231, 76, 60, 0.20) !important;
+    -fx-border-color: transparent transparent rgba(231, 76, 60, 0.35) transparent !important;
+}
+.table-view .table-row-cell.row-out-of-stock .table-cell {
+    -fx-text-fill: #c0392b !important;
+}
+
+.table-view .table-row-cell.row-critical-stock {
+    -fx-background-color: rgba(230, 126, 34, 0.14) !important;
+    -fx-border-color: transparent transparent rgba(230, 126, 34, 0.30) transparent !important;
+}
+.table-view .table-row-cell.row-critical-stock .table-cell {
+    -fx-text-fill: #d35400 !important;
+}
+
+.table-view .table-row-cell.row-low-stock {
+    -fx-background-color: rgba(241, 196, 15, 0.08) !important;
+    -fx-border-color: transparent transparent rgba(241, 196, 15, 0.20) transparent !important;
+}
+.table-view .table-row-cell.row-low-stock .table-cell {
+    -fx-text-fill: #b7950b !important;
+}
+
+/* Ensure hover states remain snappy over unselected colored warning items */
+.table-view .table-row-cell.row-out-of-stock:filled:hover,
+.table-view .table-row-cell.row-critical-stock:filled:hover,
+.table-view .table-row-cell.row-low-stock:filled:hover {
+    -fx-background-color: rgba(41, 128, 185, 0.12) !important;
+}
+
+/* =========================================================================
+   7. INLINE SLIDING SIDE-PANE STYLING (HIGH-VISIBILITY PROFESSIONAL SHADOW)
+   ========================================================================= */
+.split-pane {
+    -fx-background-color: transparent !important;
+    -fx-box-border: transparent !important;
+    -fx-padding: 0;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-background-color: rgba(226, 232, 240, 0.5) !important;
+    -fx-padding: 0 1px 0 1px;
+}
+
+#slidingFormPane {
+    -fx-background-color: rgba(255, 255, 255, 0.88) !important;
+    -fx-border-color: rgba(203, 213, 225, 0.9) !important;
+    -fx-border-width: 1px !important;
+    -fx-border-radius: 16px !important;
+    -fx-background-radius: 16px !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 23, 42, 0.12), 20, 0.35, -4, 4) !important;
+
+    /* 👑 THE FIX: Replaced the broken -fx-margin layout rule with a clean native padding offset inset */
+    -fx-padding: 25px 25px 25px 25px !important;
+}
+
+#slidingFormPane .label {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#slidingFormPane .combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1.2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+#slidingFormPane .combo-box:focused {
+    -fx-border-color: #2980b9;
+    -fx-effect: dropshadow(three-pass-box, rgba(41, 128, 185, 0.15), 4, 0, 0, 0);
+}
+
+#slidingFormPane .combo-box .text-input {
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
