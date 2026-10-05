@@ -8,7 +8,7 @@
 
 <StackPane fx:id="mainStack" alignment="TOP_LEFT" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.HelloController">
 
-    <VBox alignment="TOP_LEFT" spacing="20.0" style="-fx-background-color: transparent;" stylesheets="@style.css" maxWidth="Infinity" maxHeight="Infinity">
+    <VBox alignment="TOP_LEFT" maxHeight="Infinity" maxWidth="Infinity" spacing="20.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
         <padding>
             <Insets bottom="25.0" left="30.0" right="30.0" top="25.0" />
         </padding>
@@ -25,13 +25,13 @@
             </VBox.margin>
         </Label>
 
-        <SplitPane fx:id="sideSplitPane" dividerPositions="1.0" style="-fx-background-color: transparent; -fx-box-border: transparent;" maxWidth="Infinity" maxHeight="Infinity" VBox.vgrow="ALWAYS">
+        <SplitPane fx:id="sideSplitPane" dividerPositions="1.0" maxHeight="Infinity" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-box-border: transparent;" VBox.vgrow="ALWAYS">
             <items>
 
-                <TabPane style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" maxWidth="Infinity" SplitPane.resizableWithParent="true">
+                <TabPane maxWidth="Infinity" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" SplitPane.resizableWithParent="true">
                     <tabs>
                         <Tab text="Inventory Management">
-                            <VBox styleClass="tab-content-holder" spacing="15.0" style="-fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 12, 0, 0, 2);" maxHeight="Infinity" VBox.vgrow="ALWAYS">
+                            <VBox maxHeight="Infinity" spacing="15.0" style="-fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 12, 0, 0, 2);" styleClass="tab-content-holder" VBox.vgrow="ALWAYS">
                                 <Separator prefWidth="200.0" />
 
                                 <HBox alignment="CENTER" spacing="30.0">
@@ -54,7 +54,10 @@
                                 <Separator />
 
                                 <HBox alignment="CENTER" spacing="12.0">
-                                    <TextField fx:id="nameInput" prefHeight="40.0" prefWidth="240.0" promptText="Item Name" />
+                                    <TextField fx:id="nameInput" prefHeight="40.0" prefWidth="240.0" promptText="Item Name">
+                              <font>
+                                 <Font name="Arial" size="12.0" />
+                              </font></TextField>
                                     <ComboBox fx:id="categoryInput" prefHeight="40.0" prefWidth="150.0" promptText="Category" />
                                     <TextField fx:id="stockInput" prefHeight="40.0" prefWidth="100.0" promptText="Initial Qty" />
                                     <ComboBox fx:id="unitInput" prefHeight="40.0" prefWidth="130.0" promptText="Unit Type" />
@@ -93,7 +96,7 @@
                         </Tab>
 
                         <Tab text="Transaction History (Flow)">
-                            <VBox styleClass="tab-content-holder" spacing="15.0" style="-fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 12, 0, 0, 2);" maxHeight="Infinity" VBox.vgrow="ALWAYS">
+                            <VBox maxHeight="Infinity" spacing="15.0" style="-fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 12, 0, 0, 2);" styleClass="tab-content-holder" VBox.vgrow="ALWAYS">
                                 <Separator prefWidth="200.0" />
                                 <HBox alignment="CENTER_LEFT" spacing="15.0">
                                     <Label style="-fx-text-fill: #1e293b; -fx-font-weight: bold; -fx-font-size: 15px;" text="Audit Trail: Recent Stock Movements" />
@@ -139,7 +142,7 @@
                     </tabs>
                 </TabPane>
 
-                <VBox fx:id="slidingFormPane" maxWidth="380.0" minWidth="0.0" prefWidth="350.0" styleClass="tab-content-holder" spacing="20.0" style="-fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 15, 0, 0, 2);" SplitPane.resizableWithParent="false">
+                <VBox fx:id="slidingFormPane" maxWidth="380.0" minWidth="0.0" prefWidth="350.0" spacing="20.0" style="-fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 15, 0, 0, 2);" styleClass="tab-content-holder" SplitPane.resizableWithParent="false">
                     <children>
                         <HBox alignment="CENTER_LEFT">
                             <children>
@@ -157,21 +160,21 @@
 
                         <VBox spacing="6.0">
                             <children>
-                                <Label text="Selected Stationery:" textFill="#475569" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+                                <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Selected Stationery:" textFill="#475569" />
                                 <TextField fx:id="formItemNameField" editable="false" prefHeight="38.0" style="-fx-opacity: 0.85;" />
                             </children>
                         </VBox>
 
                         <VBox spacing="6.0">
                             <children>
-                                <Label text="Transaction Target Quantity:" textFill="#475569" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+                                <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Transaction Target Quantity:" textFill="#475569" />
                                 <TextField fx:id="formQuantityField" prefHeight="38.0" promptText="Enter piece count..." />
                             </children>
                         </VBox>
 
                         <VBox spacing="6.0">
                             <children>
-                                <Label fx:id="formEntityLabel" text="Supplier / Vendor:" textFill="#475569" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+                                <Label fx:id="formEntityLabel" style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Supplier / Vendor:" textFill="#475569" />
                                 <ComboBox fx:id="formEntityComboBox" editable="true" maxWidth="Infinity" prefHeight="38.0" promptText="Type or select entity..." />
                             </children>
                         </VBox>
@@ -180,8 +183,8 @@
 
                         <HBox alignment="CENTER" spacing="15.0">
                             <children>
-                                <Button maxWidth="Infinity" HBox.hgrow="ALWAYS" onAction="#handleCloseSlidingPane" styleClass="standard-button" text="Cancel" prefHeight="40.0" />
-                                <Button fx:id="formActionButton" maxWidth="Infinity" HBox.hgrow="ALWAYS" onAction="#handleExecuteFormAction" style="-fx-background-color: #2980b9; -fx-text-fill: white;" styleClass="button" text="Confirm Transaction" prefHeight="40.0" />
+                                <Button maxWidth="Infinity" onAction="#handleCloseSlidingPane" prefHeight="40.0" styleClass="standard-button" text="Cancel" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="formActionButton" maxWidth="Infinity" onAction="#handleExecuteFormAction" prefHeight="40.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" styleClass="button" text="Confirm Transaction" HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
                     </children>
