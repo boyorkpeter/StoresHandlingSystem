@@ -55,7 +55,7 @@
                                 <Font name="Segoe UI Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label text="Login to continue your journey" textFill="#64748b">
+                        <Label text="Login" textFill="#64748b">
                             <font>
                                 <Font name="Segoe UI" size="13.0" />
                             </font>
