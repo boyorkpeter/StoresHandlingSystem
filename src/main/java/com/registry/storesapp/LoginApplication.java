@@ -8,14 +8,14 @@ public class LoginApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // --- FIXED: Redirected layout generation through the central SceneManager pipeline ---
-        // This automatically injects the perfectly round watermark background and sets the application taskbar icon.
+        // Expanded window dimensions and set resizable to true to enable titlebar controls and prevent card clipping.
         SceneManager.prepareWindow(
                 stage,
                 "login-view.fxml",
                 "SHMS - Secure Access Gateway",
-                400,
-                320,
-                false // Kept login stage unresizable so the login card fields don't warp layout sizes
+                500,
+                600,
+                true // Enabled stage resizability to activate the maximize button and fit the neumorphic card layout
         );
 
         stage.centerOnScreen(); // Anchors the login layout frame dead-center on your desktop monitor

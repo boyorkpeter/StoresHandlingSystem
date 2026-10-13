@@ -5,22 +5,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="CENTER" style="-fx-background-color: #e2f1fc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.LoginController">
+<StackPane alignment="CENTER" prefHeight="650.0" prefWidth="540.0" style="-fx-background-color: #dbeafe; -fx-padding: 40;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.LoginController">
     <children>
-        <!-- Central Neumorphic Card Container -->
-        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="440.0" prefWidth="380.0" spacing="16.0" style="-fx-background-color: #edf2f7; -fx-background-radius: 24px; -fx-border-radius: 24px; -fx-border-color: rgba(255, 255, 255, 0.8); -fx-border-width: 1.5px; -fx-padding: 35;">
+        <!-- Neumorphic Floating Card with Real Drop Shadow -->
+        <VBox alignment="CENTER" maxWidth="430.0" spacing="22.0" style="-fx-background-color: #f1f5f9; -fx-background-radius: 32px; -fx-padding: 45 40 45 40;">
+            <effect>
+                <DropShadow blurType="GAUSSIAN" height="45.0" radius="22.0" width="45.0">
+                    <color>
+                        <Color red="0.5" green="0.6" blue="0.7" opacity="0.3" />
+                    </color>
+                </DropShadow>
+            </effect>
             <children>
 
-                <!-- Top Lock Icon Badge -->
-                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #edf2f7; -fx-background-radius: 25px; -fx-border-color: #d1d9e6; -fx-border-radius: 25px; -fx-border-width: 1px;">
+                <!-- Floating Icon Container -->
+                <StackPane maxHeight="64.0" maxWidth="64.0" minHeight="64.0" minWidth="64.0" style="-fx-background-color: #f8fafc; -fx-background-radius: 32px;">
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" height="15.0" radius="7.0" width="15.0">
+                            <color>
+                                <Color red="0.6" green="0.7" blue="0.8" opacity="0.25" />
+                            </color>
+                        </DropShadow>
+                    </effect>
                     <children>
                         <Label text="🔒" textFill="#0284c7">
                             <font>
-                                <Font size="18.0" />
+                                <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
@@ -29,52 +45,54 @@
                     </VBox.margin>
                 </StackPane>
 
-                <!-- Welcome Header Titles -->
-                <VBox alignment="CENTER" spacing="3.0">
+                <!-- Header Title -->
+                <VBox alignment="CENTER" spacing="5.0">
                     <children>
-                        <Label text="Welcome" textFill="#1e293b">
+                        <Label text="Welcome" textFill="#0f172a">
                             <font>
-                                <Font name="Segoe UI Bold" size="24.0" />
+                                <Font name="Segoe UI Bold" size="28.0" />
                             </font>
                         </Label>
                         <Label text="Login to continue your journey" textFill="#64748b">
                             <font>
-                                <Font name="Segoe UI" size="12.5" />
+                                <Font name="Segoe UI" size="14.0" />
                             </font>
                         </Label>
                     </children>
+                </VBox>
+
+                <!-- Input Fields with Soft Recessed Effect -->
+                <VBox spacing="16.0">
+                    <children>
+                        <TextField fx:id="usernameField" prefHeight="50.0" promptText="Username" style="-fx-background-color: #e2e8f0; -fx-background-radius: 25px; -fx-padding: 0 22px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #0f172a; -fx-font-size: 14.5px;" />
+                        <PasswordField fx:id="passwordField" prefHeight="50.0" promptText="Password" style="-fx-background-color: #e2e8f0; -fx-background-radius: 25px; -fx-padding: 0 22px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #0f172a; -fx-font-size: 14.5px;" />
+                    </children>
                     <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets top="8.0" />
                     </VBox.margin>
                 </VBox>
 
-                <!-- Username Input Field -->
-                <VBox spacing="4.0">
-                    <children>
-                        <TextField fx:id="usernameField" prefHeight="42.0" promptText="Username" style="-fx-background-color: #e4ebf5; -fx-background-radius: 10px; -fx-border-color: #d1d9e6; -fx-border-radius: 10px; -fx-border-width: 1px; -fx-padding: 0 14px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #1e293b;" />
-                    </children>
-                </VBox>
+                <!-- Error Label -->
+                <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" wrapText="true" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
 
-                <!-- Password Input Field -->
-                <VBox spacing="4.0">
-                    <children>
-                        <PasswordField fx:id="passwordField" prefHeight="42.0" promptText="Password" style="-fx-background-color: #e4ebf5; -fx-background-radius: 10px; -fx-border-color: #d1d9e6; -fx-border-radius: 10px; -fx-border-width: 1px; -fx-padding: 0 14px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #1e293b;" />
-                    </children>
-                </VBox>
-
-                <!-- Error Feedback Label -->
-                <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" wrapText="true" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
-
-                <!-- Action Login Button -->
-                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="44.0" prefWidth="310.0" style="-fx-background-color: #0284c7; -fx-background-radius: 22px; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand;" text="Login">
+                <!-- Action Button -->
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #0284c7; -fx-background-radius: 25px; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15.5px; -fx-cursor: hand;" text="Login">
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" height="20.0" radius="9.5" width="20.0">
+                            <color>
+                                <Color red="0.0" green="0.45" blue="0.7" opacity="0.3" />
+                            </color>
+                        </DropShadow>
+                    </effect>
                     <VBox.margin>
                         <Insets top="4.0" />
-                    </VBox.margin></Button>
+                    </VBox.margin>
+                </Button>
 
-                <!-- Bottom Register Footer Label -->
+                <!-- Footer Text -->
                 <Label text="Don't have an account? Register here" textFill="#64748b">
                     <font>
-                        <Font name="Segoe UI" size="11.5" />
+                        <Font name="Segoe UI" size="12.5" />
                     </font>
                     <VBox.margin>
                         <Insets top="8.0" />
