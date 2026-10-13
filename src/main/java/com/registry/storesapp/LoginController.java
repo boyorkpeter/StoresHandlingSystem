@@ -19,14 +19,19 @@ public class LoginController {
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
+    @FXML private TextField visiblePasswordField; // Injected for password visibility toggle
+    @FXML private Button togglePasswordButton;    // Injected eye toggle button
     @FXML private Label errorLabel;
     @FXML private Button loginButton;
-    @FXML private Hyperlink registerLink; // Injected interactive registration link
+    @FXML private Hyperlink registerLink;
+
+    private boolean isPasswordVisible = false;
 
     @FXML
     private void handleLogin(ActionEvent event) {
         String username = usernameField.getText().trim();
-        String password = passwordField.getText();
+        // Extract password dynamically from whichever field is currently active/visible
+        String password = isPasswordVisible ? visiblePasswordField.getText() : passwordField.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
             showError("Authentication rejected: Empty fields.");
@@ -55,13 +60,35 @@ public class LoginController {
     }
 
     @FXML
+    private void handleTogglePassword(ActionEvent event) {
+        isPasswordVisible = !isPasswordVisible;
+
+        if (isPasswordVisible) {
+            visiblePasswordField.setText(passwordField.getText());
+            visiblePasswordField.setVisible(true);
+            visiblePasswordField.setManaged(true);
+
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+
+            togglePasswordButton.setText("👁‍🗨"); // Change icon to indicate visible state
+        } else {
+            passwordField.setText(visiblePasswordField.getText());
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+
+            visiblePasswordField.setVisible(false);
+            visiblePasswordField.setManaged(false);
+
+            togglePasswordButton.setText("👁"); // Change back to hidden eye icon
+        }
+    }
+
+    @FXML
     private void handleOpenRegister(ActionEvent event) {
         try {
-            // 1. Build a fresh standalone Stage for the registration portal
             Stage registerStage = new Stage();
 
-            // 2. Prepare the registration view through SceneManager
-            // (Make sure your registration fxml file name matches what you use, e.g., "register-view.fxml")
             SceneManager.prepareWindow(
                     registerStage,
                     "register-view.fxml",
@@ -73,11 +100,9 @@ public class LoginController {
 
             registerStage.centerOnScreen();
 
-            // 3. Close the current login window
             Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             loginStage.close();
 
-            // 4. Show the registration window
             registerStage.show();
 
         } catch (Exception e) {
