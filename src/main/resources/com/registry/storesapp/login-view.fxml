@@ -5,47 +5,83 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="16.0" style="-fx-background-color: #f8fafc; -fx-padding: 30;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.LoginController">
+<StackPane alignment="CENTER" style="-fx-background-color: #e2f1fc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.LoginController">
     <children>
-
-        <VBox alignment="CENTER" spacing="4.0">
+        <!-- Central Neumorphic Card Container -->
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="440.0" prefWidth="380.0" spacing="16.0" style="-fx-background-color: #edf2f7; -fx-background-radius: 24px; -fx-border-radius: 24px; -fx-border-color: rgba(255, 255, 255, 0.8); -fx-border-width: 1.5px; -fx-padding: 35;">
             <children>
-                <Label text="Registry Stores System" textFill="#2c3e50">
+
+                <!-- Top Lock Icon Badge -->
+                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #edf2f7; -fx-background-radius: 25px; -fx-border-color: #d1d9e6; -fx-border-radius: 25px; -fx-border-width: 1px;">
+                    <children>
+                        <Label text="🔒" textFill="#0284c7">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="4.0" />
+                    </VBox.margin>
+                </StackPane>
+
+                <!-- Welcome Header Titles -->
+                <VBox alignment="CENTER" spacing="3.0">
+                    <children>
+                        <Label text="Welcome" textFill="#1e293b">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Login to continue your journey" textFill="#64748b">
+                            <font>
+                                <Font name="Segoe UI" size="12.5" />
+                            </font>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <!-- Username Input Field -->
+                <VBox spacing="4.0">
+                    <children>
+                        <TextField fx:id="usernameField" prefHeight="42.0" promptText="Username" style="-fx-background-color: #e4ebf5; -fx-background-radius: 10px; -fx-border-color: #d1d9e6; -fx-border-radius: 10px; -fx-border-width: 1px; -fx-padding: 0 14px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #1e293b;" />
+                    </children>
+                </VBox>
+
+                <!-- Password Input Field -->
+                <VBox spacing="4.0">
+                    <children>
+                        <PasswordField fx:id="passwordField" prefHeight="42.0" promptText="Password" style="-fx-background-color: #e4ebf5; -fx-background-radius: 10px; -fx-border-color: #d1d9e6; -fx-border-radius: 10px; -fx-border-width: 1px; -fx-padding: 0 14px; -fx-prompt-text-fill: #94a3b8; -fx-text-fill: #1e293b;" />
+                    </children>
+                </VBox>
+
+                <!-- Error Feedback Label -->
+                <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" wrapText="true" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+
+                <!-- Action Login Button -->
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="44.0" prefWidth="310.0" style="-fx-background-color: #0284c7; -fx-background-radius: 22px; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand;" text="Login">
+                    <VBox.margin>
+                        <Insets top="4.0" />
+                    </VBox.margin></Button>
+
+                <!-- Bottom Register Footer Label -->
+                <Label text="Don't have an account? Register here" textFill="#64748b">
                     <font>
-                        <Font name="Segoe UI Bold" size="22.0" />
+                        <Font name="Segoe UI" size="11.5" />
                     </font>
+                    <VBox.margin>
+                        <Insets top="8.0" />
+                    </VBox.margin>
                 </Label>
-                <Label text="Secure Portal Access Authentication" textFill="#64748b">
-                    <font>
-                        <Font name="Segoe UI" size="13.0" />
-                    </font>
-                </Label>
-            </children>
-            <VBox.margin>
-                <Insets bottom="10.0" />
-            </VBox.margin>
-        </VBox>
 
-        <VBox spacing="6.0">
-            <children>
-                <Label text="Username" textFill="#334155" style="-fx-font-weight: bold;" />
-                <TextField fx:id="usernameField" prefHeight="38.0" promptText="Enter username..." style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1; -fx-border-radius: 4;" />
             </children>
         </VBox>
-
-        <VBox spacing="6.0">
-            <children>
-                <Label text="Password" textFill="#334155" style="-fx-font-weight: bold;" />
-                <PasswordField fx:id="passwordField" prefHeight="38.0" promptText="Enter password..." style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1; -fx-border-radius: 4;" />
-            </children>
-        </VBox>
-
-        <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" wrapText="true" style="-fx-font-weight: bold;" />
-
-        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="340.0" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Authenticate Portal Session" />
-
     </children>
-</VBox>
+</StackPane>
