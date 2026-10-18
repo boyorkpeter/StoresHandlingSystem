@@ -28,19 +28,18 @@
             </effect>
             <children>
 
-                <!-- Floating Logo Container -->
-                <StackPane maxHeight="56.0" maxWidth="56.0" minHeight="56.0" minWidth="56.0" style="-fx-background-color: #f8fafc; -fx-background-radius: 28px;">
+                <!-- Larger Floating Logo Container -->
+                <StackPane maxHeight="72.0" maxWidth="72.0" minHeight="72.0" minWidth="72.0" style="-fx-background-color: #f8fafc; -fx-background-radius: 36px;">
                     <effect>
-                        <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
+                        <DropShadow blurType="GAUSSIAN" height="14.0" radius="6.5" width="14.0">
                             <color>
-                                <Color red="0.6" green="0.7" blue="0.8" opacity="0.25" />
+                                <Color red="0.6" green="0.7" blue="0.8" opacity="0.3" />
                             </color>
                         </DropShadow>
                     </effect>
                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <!-- Pointing to the available background image file -->
                                 <Image url="@background.jpg" />
                             </image>
                         </ImageView>
