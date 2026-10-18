@@ -40,7 +40,8 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@images/logo.png" />
+                                <!-- Pointing directly to the file located in the same directory as login-view.fxml -->
+                                <Image url="@logo.png" />
                             </image>
                         </ImageView>
                     </children>
