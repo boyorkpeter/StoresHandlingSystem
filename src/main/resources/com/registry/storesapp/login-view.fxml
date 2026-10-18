@@ -7,6 +7,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -26,7 +28,7 @@
             </effect>
             <children>
 
-                <!-- Floating Icon Container -->
+                <!-- Floating Logo Container -->
                 <StackPane maxHeight="56.0" maxWidth="56.0" minHeight="56.0" minWidth="56.0" style="-fx-background-color: #f8fafc; -fx-background-radius: 28px;">
                     <effect>
                         <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
@@ -36,11 +38,11 @@
                         </DropShadow>
                     </effect>
                     <children>
-                        <Label text="🔒" textFill="#0284c7">
-                            <font>
-                                <Font size="22.0" />
-                            </font>
-                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/logo.png" />
+                            </image>
+                        </ImageView>
                     </children>
                     <VBox.margin>
                         <Insets bottom="2.0" />
