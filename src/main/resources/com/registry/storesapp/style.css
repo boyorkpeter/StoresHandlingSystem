@@ -1,8 +1,12 @@
 /* =========================================================================
-   1. ROOT & CONTAINER SETUP (Watermark Preservation Optimization)
+1. ROOT & CONTAINER SETUP (Theme Switcher Support)
    ========================================================================= */
 .root {
     -fx-background-color: #f8fafc !important;
+}
+
+.root.dark-mode {
+    -fx-background-color: #0f172a !important;
 }
 
 #mainStack {
@@ -36,13 +40,16 @@
     -fx-opacity: 0 !important;
 }
 
-/* HIGH TRANSPARENCY CONTAINER: Lowered from 0.85 to 0.50 opacity
-   This makes the background watermark instantly look much larger, clearer, and wider!
-*/
+/* Glass Content Holder: Light & Dark Variations */
 .tab-content-holder {
     -fx-background-color: rgba(255, 255, 255, 0.50) !important;
     -fx-border-color: rgba(226, 232, 240, 0.5) !important;
     -fx-border-width: 1px !important;
+}
+
+.dark-mode .tab-content-holder {
+    -fx-background-color: rgba(30, 41, 59, 0.65) !important;
+    -fx-border-color: rgba(51, 65, 85, 0.6) !important;
 }
 
 /* --- INDIVIDUAL TABS --- */
@@ -54,10 +61,18 @@
     -fx-cursor: hand;
 }
 
+.dark-mode .tab {
+    -fx-background-color: #334155 !important;
+}
+
 .tab .tab-label {
     -fx-text-fill: #1c2833 !important;
     -fx-font-weight: bold !important;
     -fx-font-size: 15px;
+}
+
+.dark-mode .tab .tab-label {
+    -fx-text-fill: #cbd5e1 !important;
 }
 
 .tab:selected {
@@ -70,7 +85,7 @@
 }
 
 /* =========================================================================
-   3. CRYSTAL TRANSPARENT TABLEVIEW ENGINE (UPGRADED SELECTED ROW STYLING)
+   3. CRYSTAL TRANSPARENT TABLEVIEW ENGINE
    ========================================================================= */
 .table-view {
     -fx-background-color: transparent !important;
@@ -80,7 +95,6 @@
     -fx-background-radius: 8px !important;
 }
 
-/* Stripping all default nested container components */
 .table-view .scroll-pane,
 .table-view .scroll-pane .viewport,
 .table-view .scroll-pane .content,
@@ -89,15 +103,19 @@
     -fx-background-color: transparent !important;
 }
 
-/* THE FIX: Completely strips the hard-white backdrop from the "No content in table" placeholder box */
 .table-view .placeholder,
 .table-view .placeholder .label {
     -fx-background-color: transparent !important;
 }
+
 .table-view .placeholder .text {
     -fx-fill: #475569 !important;
     -fx-font-weight: bold !important;
     -fx-font-size: 14px;
+}
+
+.dark-mode .table-view .placeholder .text {
+    -fx-fill: #94a3b8 !important;
 }
 
 /* --- TABLE COLUMN HEADERS --- */
@@ -105,6 +123,10 @@
     -fx-background-color: rgba(226, 232, 240, 0.8) !important;
     -fx-border-color: transparent transparent rgba(148, 163, 184, 0.4) transparent !important;
     -fx-border-width: 0 0 1px 0 !important;
+}
+
+.dark-mode .table-view .column-header-background {
+    -fx-background-color: rgba(30, 41, 59, 0.9) !important;
 }
 
 .table-view .column-header {
@@ -118,6 +140,10 @@
     -fx-text-fill: #1e293b !important;
     -fx-font-weight: bold !important;
     -fx-font-size: 13.5px;
+}
+
+.dark-mode .table-view .column-header .label {
+    -fx-text-fill: #f1f5f9 !important;
 }
 
 /* --- 100% PURE GLASS ROWS --- */
@@ -136,13 +162,20 @@
     -fx-background-color: rgba(41, 128, 185, 0.08) !important;
 }
 
-/* HIGH OUTSTANDING CONTRAST: Swapped pale yellow for an authoritative dark corporate blue */
+.dark-mode .table-row-cell:filled:hover {
+    -fx-background-color: rgba(56, 189, 248, 0.15) !important;
+}
+
 .table-row-cell:selected,
 .table-view .table-row-cell:filled:selected {
     -fx-background-color: #1e3a8a !important;
 }
 
-/* TEXT COLOR OVERRIDE: Flips text to white so it contrasts beautifully against the new dark blue background */
+.dark-mode .table-row-cell:selected,
+.dark-mode .table-view .table-row-cell:filled:selected {
+    -fx-background-color: #0284c7 !important;
+}
+
 .table-row-cell:selected .table-cell,
 .table-view .table-row-cell:filled:selected .table-cell {
     -fx-text-fill: #ffffff !important;
@@ -156,6 +189,10 @@
     -fx-padding: 12px 14px;
 }
 
+.dark-mode .table-view .table-cell {
+    -fx-text-fill: #f8fafc;
+}
+
 /* =========================================================================
    4. INPUT CONTROLS & UTILITIES
    ========================================================================= */
@@ -167,6 +204,12 @@
     -fx-background-radius: 6px;
     -fx-text-fill: #0f172a;
     -fx-font-weight: bold;
+}
+
+.dark-mode .text-field, .dark-mode .combo-box {
+    -fx-background-color: rgba(30, 41, 59, 0.9);
+    -fx-border-color: #475569;
+    -fx-text-fill: #f8fafc;
 }
 
 #searchField, #historySearchField {
@@ -243,12 +286,20 @@
     -fx-text-fill: #c0392b !important;
 }
 
+.dark-mode .table-view .table-row-cell.row-out-of-stock .table-cell {
+    -fx-text-fill: #f87171 !important;
+}
+
 .table-view .table-row-cell.row-critical-stock {
     -fx-background-color: rgba(230, 126, 34, 0.14) !important;
     -fx-border-color: transparent transparent rgba(230, 126, 34, 0.30) transparent !important;
 }
 .table-view .table-row-cell.row-critical-stock .table-cell {
     -fx-text-fill: #d35400 !important;
+}
+
+.dark-mode .table-view .table-row-cell.row-critical-stock .table-cell {
+    -fx-text-fill: #fb923c !important;
 }
 
 .table-view .table-row-cell.row-low-stock {
@@ -259,7 +310,10 @@
     -fx-text-fill: #b7950b !important;
 }
 
-/* Ensure hover states remain snappy over unselected colored warning items */
+.dark-mode .table-view .table-row-cell.row-low-stock .table-cell {
+    -fx-text-fill: #facc15 !important;
+}
+
 .table-view .table-row-cell.row-out-of-stock:filled:hover,
 .table-view .table-row-cell.row-critical-stock:filled:hover,
 .table-view .table-row-cell.row-low-stock:filled:hover {
@@ -267,7 +321,7 @@
 }
 
 /* =========================================================================
-   7. INLINE SLIDING SIDE-PANE STYLING (HIGH-VISIBILITY PROFESSIONAL SHADOW)
+   7. INLINE SLIDING SIDE-PANE STYLING
    ========================================================================= */
 .split-pane {
     -fx-background-color: transparent !important;
@@ -280,6 +334,10 @@
     -fx-padding: 0 1px 0 1px;
 }
 
+.dark-mode .split-pane *.split-pane-divider {
+    -fx-background-color: rgba(51, 65, 85, 0.5) !important;
+}
+
 #slidingFormPane {
     -fx-background-color: rgba(255, 255, 255, 0.88) !important;
     -fx-border-color: rgba(203, 213, 225, 0.9) !important;
@@ -287,13 +345,21 @@
     -fx-border-radius: 16px !important;
     -fx-background-radius: 16px !important;
     -fx-effect: dropshadow(three-pass-box, rgba(15, 23, 42, 0.12), 20, 0.35, -4, 4) !important;
-
-    /* 👑 THE FIX: Replaced the broken -fx-margin layout rule with a clean native padding offset inset */
     -fx-padding: 25px 25px 25px 25px !important;
+}
+
+.dark-mode #slidingFormPane {
+    -fx-background-color: rgba(30, 41, 59, 0.92) !important;
+    -fx-border-color: rgba(51, 65, 85, 0.9) !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 20, 0.35, -4, 4) !important;
 }
 
 #slidingFormPane .label {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.dark-mode #slidingFormPane .label {
+    -fx-text-fill: #f8fafc;
 }
 
 #slidingFormPane .combo-box {
@@ -302,6 +368,11 @@
     -fx-border-width: 1.2px;
     -fx-border-radius: 6px;
     -fx-background-radius: 6px;
+}
+
+.dark-mode #slidingFormPane .combo-box {
+    -fx-background-color: rgba(30, 41, 59, 0.95);
+    -fx-border-color: #475569;
 }
 
 #slidingFormPane .combo-box:focused {
@@ -313,4 +384,8 @@
     -fx-text-fill: #0f172a;
     -fx-font-weight: bold;
     -fx-font-size: 13px;
+}
+
+.dark-mode #slidingFormPane .combo-box .text-input {
+    -fx-text-fill: #f8fafc;
 }

@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -970,5 +971,8 @@ public class HelloController {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "History has been cleared.");
             }
         });
+    }
+
+    public void handleToggleTheme(ActionEvent actionEvent) {
     }
 }

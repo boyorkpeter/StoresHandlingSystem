@@ -6,24 +6,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="mainStack" alignment="TOP_LEFT" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.HelloController">
+<StackPane fx:id="mainStack" alignment="TOP_LEFT" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registry.storesapp.HelloController">
 
-    <VBox alignment="TOP_LEFT" maxHeight="Infinity" maxWidth="Infinity" spacing="20.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+    <VBox alignment="TOP_LEFT" maxHeight="Infinity" maxWidth="Infinity" spacing="20.0" style="-fx-background-color: transparent;">
         <padding>
             <Insets bottom="25.0" left="30.0" right="30.0" top="25.0" />
         </padding>
 
-        <Label text="Registry Stores Management System" textFill="#2c3e50">
-            <font>
-                <Font name="System Bold" size="32.0" />
-            </font>
-            <effect>
-                <DropShadow blurType="GAUSSIAN" color="WHITE" height="15.0" radius="7.0" width="15.0" />
-            </effect>
-            <VBox.margin>
-                <Insets left="5.0" />
-            </VBox.margin>
-        </Label>
+        <!-- Top Header Row with Title and Theme Toggle Switch -->
+        <HBox alignment="CENTER_LEFT">
+            <children>
+                <Label text="Registry Stores Management System" textFill="#2c3e50">
+                    <font>
+                        <Font name="System Bold" size="32.0" />
+                    </font>
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" color="WHITE" height="15.0" radius="7.0" width="15.0" />
+                    </effect>
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="themeToggleButton" mnemonicParsing="false" onAction="#handleToggleTheme" prefHeight="38.0" styleClass="standard-button" text="🌙 Dark Mode" />
+            </children>
+        </HBox>
 
         <SplitPane fx:id="sideSplitPane" dividerPositions="1.0" maxHeight="Infinity" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-box-border: transparent;" VBox.vgrow="ALWAYS">
             <items>
@@ -55,9 +62,9 @@
 
                                 <HBox alignment="CENTER" spacing="12.0">
                                     <TextField fx:id="nameInput" prefHeight="40.0" prefWidth="240.0" promptText="Item Name">
-                              <font>
-                                 <Font name="Arial" size="12.0" />
-                              </font></TextField>
+                                        <font>
+                                            <Font name="Arial" size="12.0" />
+                                        </font></TextField>
                                     <ComboBox fx:id="categoryInput" prefHeight="40.0" prefWidth="150.0" promptText="Category" />
                                     <TextField fx:id="stockInput" prefHeight="40.0" prefWidth="100.0" promptText="Initial Qty" />
                                     <ComboBox fx:id="unitInput" prefHeight="40.0" prefWidth="130.0" promptText="Unit Type" />
