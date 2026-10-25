@@ -57,6 +57,10 @@ public class HelloController {
     @FXML private Label lowStockLabel;
     @FXML private Label outOfStockLabel;
 
+    // --- THEME SWITCHER TOGGLE BUTTON ---
+    @FXML private Button themeToggleButton;
+    private boolean isDarkMode = false;
+
     // --- INLINE SIDE-SLIDING WORKSPACE MAPPINGS ---
     @FXML private SplitPane sideSplitPane;
     @FXML private VBox slidingFormPane;
@@ -973,6 +977,25 @@ public class HelloController {
         });
     }
 
+    // --- WORKING THEME TOGGLE HANDLER ---
+    @FXML
     public void handleToggleTheme(ActionEvent actionEvent) {
+        isDarkMode = !isDarkMode;
+        if (themeToggleButton != null && themeToggleButton.getScene() != null) {
+            javafx.scene.Parent root = themeToggleButton.getScene().getRoot();
+            if (isDarkMode) {
+                if (!root.getStyleClass().contains("dark-mode")) {
+                    root.getStyleClass().add("dark-mode");
+                }
+                themeToggleButton.setText("☀️ Light Mode");
+            } else {
+                root.getStyleClass().remove("dark-mode");
+                themeToggleButton.setText("🌙 Dark Mode");
+            }
+
+            // Force JavaFX layout engine to refresh and apply CSS instantly
+            root.applyCss();
+            root.layout();
+        }
     }
 }

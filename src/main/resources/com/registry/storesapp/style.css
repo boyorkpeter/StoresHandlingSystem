@@ -1,5 +1,5 @@
 /* =========================================================================
-1. ROOT & CONTAINER SETUP (Theme Switcher Support)
+   1. ROOT & CONTAINER SETUP (Theme Switcher Support)
    ========================================================================= */
 .root {
     -fx-background-color: #f8fafc !important;
@@ -388,4 +388,33 @@
 
 .dark-mode #slidingFormPane .combo-box .text-input {
     -fx-text-fill: #f8fafc;
+}
+
+/* =========================================================================
+   8. TARGETED DARK MODE CONTRAST OVERRIDES
+   ========================================================================= */
+
+/* Labels specifically inside containers and sliding form panes in dark mode */
+.dark-mode .tab-content-holder Label,
+.dark-mode .tab-content-holder .label {
+    -fx-text-fill: #f8fafc !important;
+}
+
+/* Input Fields and ComboBox text in dark mode */
+.dark-mode .text-field,
+.dark-mode .combo-box {
+    -fx-text-fill: #ffffff !important;
+    -fx-prompt-text-fill: #94a3b8 !important;
+}
+
+/* ComboBox dropdown list cell text readability */
+.dark-mode .combo-box-popup .list-view .list-cell {
+    -fx-text-fill: #0f172a !important;
+}
+
+/* --- EXPLICIT TITLE EXCEPTION (Keep Header Dark Navy across all themes) --- */
+.main-header-title,
+.dark-mode .main-header-title,
+.dark-mode Label.main-header-title {
+    -fx-text-fill: #2c3e50 !important;
 }

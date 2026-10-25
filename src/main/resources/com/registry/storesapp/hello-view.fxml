@@ -16,7 +16,7 @@
         <!-- Top Header Row with Title and Theme Toggle Switch -->
         <HBox alignment="CENTER_LEFT">
             <children>
-                <Label text="Registry Stores Management System" textFill="#2c3e50">
+                <Label text="Registry Stores Management System" styleClass="main-header-title">
                     <font>
                         <Font name="System Bold" size="32.0" />
                     </font>
